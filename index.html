@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frostbyte. — Yakutian AI Ecosystem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=JetBrains+Mono:wght@300;350;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="terminal-line" id="loadingLine"></div>
+    </div>
+
+    <div class="background-pattern"></div>
+    <div class="scanlines"></div>
+
+    <main class="container" id="mainContent">
+        <section class="hero">
+            <div class="terminal-block">
+                <div class="terminal-line">
+                    <span class="prompt">frostbyte@yakutsk:~$</span>
+                    <span class="command">./boot --cold-start</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="output">> YAKUTSK —44°C</span>
+                </div>
+            </div>
+            <h1 class="brand">frostbyte.</h1>
+        </section>
+
+        <section class="services">
+            <div class="terminal-block">
+                <div class="terminal-line prompt-line">
+                    <span class="prompt">frostbyte@yakutsk:~/services$</span>
+                    <span class="command">ls -la</span>
+                </div>
+                <div class="services-list">
+                    <div class="service-line" data-service="taxi">
+                        <span class="arrow">→</span>
+                        <span class="service-name">taxi/</span>
+                        <span class="status">active</span>
+                        <span class="tag">24/7</span>
+                    </div>
+                    <div class="service-line" data-service="booking">
+                        <span class="arrow">→</span>
+                        <span class="service-name">booking/</span>
+                        <span class="status">active</span>
+                        <span class="tag">ai-optimized</span>
+                    </div>
+                    <div class="service-line" data-service="masters">
+                        <span class="arrow">→</span>
+                        <span class="service-name">masters/</span>
+                        <span class="status">active</span>
+                        <span class="tag">instant</span>
+                    </div>
+                    <div class="service-line" data-service="ai-business">
+                        <span class="arrow">→</span>
+                        <span class="service-name">ai-business/</span>
+                        <span class="status">active</span>
+                        <span class="tag">custom</span>
+                    </div>
+                    <div class="service-line" data-service="dev">
+                        <span class="arrow">→</span>
+                        <span class="service-name">dev/</span>
+                        <span class="status">active</span>
+                        <span class="tag">1c/bitrix/sites</span>
+                    </div>
+                    <div class="service-line" data-service="widgets">
+                        <span class="arrow">→</span>
+                        <span class="service-name">widgets/</span>
+                        <span class="status">active</span>
+                        <span class="tag">embed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics">
+            <div class="terminal-block">
+                <div class="metric-row">
+                    <span class="metric-label">QUALITY:</span>
+                    <div class="metric-bar">
+                        <div class="metric-fill" data-value="100"></div>
+                    </div>
+                    <span class="metric-value">100%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">SPEED:</span>
+                    <div class="metric-bar">
+                        <div class="metric-fill" data-value="100"></div>
+                    </div>
+                    <span class="metric-value">100%</span>
+                </div>
+                <div class="kernel-info">frostbyte.core v2.6 — ai-native kernel</div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="terminal-block contact-terminal" id="contactBlock">
+                <div class="terminal-line">
+                    <span class="prompt">user@frostbyte:~$</span>
+                    <span class="cursor"></span>
+                </div>
+                <div class="copy-notification" id="copyNotification">> link copied</div>
+            </div>
+        </section>
+
+        <div class="session-ended">--- session ended ---</div>
+    </main>
+
+    <div class="service-modal" id="serviceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="prompt">frostbyte@yakutsk:~/services$</span>
+                <span class="command" id="modalServiceName"></span>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-close">[ press any key to close ]</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
