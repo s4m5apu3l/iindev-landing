@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingLine = document.getElementById('loadingLine');
     const mainContent = document.getElementById('mainContent');
     const contactBlock = document.getElementById('contactBlock');
+    const telegramContact = document.getElementById('telegramContact');
+    const emailContact = document.getElementById('emailContact');
     const copyNotification = document.getElementById('copyNotification');
     const serviceModal = document.getElementById('serviceModal');
     const modalServiceName = document.getElementById('modalServiceName');
@@ -145,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', () => {
         if (serviceModal.classList.contains('visible')) {
             serviceModal.classList.remove('visible');
         }
@@ -157,18 +159,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    contactBlock.addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText('t.me/iindev');
-            copyNotification.classList.add('visible');
-            
-            setTimeout(() => {
-                copyNotification.classList.remove('visible');
-            }, 2000);
-        } catch (err) {
-            console.log('Copy failed');
-        }
-    });
+    // Старый блок контактов - копирует t.me/iindev
+    if (contactBlock) {
+        contactBlock.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText('t.me/iindev');
+                const notification = contactBlock.querySelector('.copy-notification');
+                if (!notification) {
+                    const notif = document.createElement('div');
+                    notif.className = 'copy-notification visible';
+                    notif.textContent = '> link copied';
+                    contactBlock.appendChild(notif);
+                    
+                    setTimeout(() => {
+                        notif.remove();
+                    }, 2000);
+                }
+            } catch (err) {
+                console.log('Copy failed');
+            }
+        });
+    }
+
+    // Копирование telegram при клике
+    if (telegramContact) {
+        telegramContact.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText('@iindev');
+                copyNotification.classList.add('visible');
+                
+                setTimeout(() => {
+                    copyNotification.classList.remove('visible');
+                }, 2000);
+            } catch (err) {
+                console.log('Copy failed');
+            }
+        });
+    }
+
+    // Копирование email при клике
+    if (emailContact) {
+        emailContact.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText('iindev@tuta.io');
+                copyNotification.classList.add('visible');
+                
+                setTimeout(() => {
+                    copyNotification.classList.remove('visible');
+                }, 2000);
+            } catch (err) {
+                console.log('Copy failed');
+            }
+        });
+    }
 
     initLoading();
 });

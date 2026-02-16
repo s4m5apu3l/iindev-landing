@@ -1,12 +1,12 @@
 :root {
-    --bg-absolute: #0A0C0E;
-    --bg-terminal: #0F1113;
-    --text-primary: #EFF3F5;
-    --accent-cyan: #A0F0E2;
-    --text-muted: #7D8D95;
-    --border-teal: #2A3A42;
-    --bar-track: #1E2E36;
-    --pattern-color: #1F2E36;
+    --bg-absolute: #0a0c0e;
+    --bg-terminal: #0f1113;
+    --text-primary: #eff3f5;
+    --accent-cyan: #a0f0e2;
+    --text-muted: #7d8d95;
+    --border-teal: #2a3a42;
+    --bar-track: #1e2e36;
+    --pattern-color: #1f2e36;
 }
 
 * {
@@ -25,7 +25,7 @@ html::-webkit-scrollbar {
 }
 
 body {
-    font-family: 'JetBrains Mono', 'SF Mono', 'Menlo', monospace;
+    font-family: "JetBrains Mono", "SF Mono", "Menlo", monospace;
     font-weight: 350;
     font-size: 14px;
     line-height: 1.6;
@@ -84,7 +84,8 @@ body {
 }
 
 @keyframes loaderPulse {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 0.3;
         transform: scale(0.8);
     }
@@ -103,7 +104,7 @@ body {
     pointer-events: none;
     z-index: 0;
     opacity: 0.02;
-    background-image: 
+    background-image:
         repeating-linear-gradient(
             45deg,
             transparent,
@@ -180,7 +181,7 @@ body {
 }
 
 .brand {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 200;
     font-size: 96px;
     letter-spacing: -0.02em;
@@ -290,6 +291,60 @@ body {
     margin-top: 24px;
 }
 
+.contact-info-section {
+    margin-bottom: 80px;
+}
+
+.contact-content {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.qr-container {
+    flex-shrink: 0;
+}
+
+.qr-code {
+    width: 120px;
+    height: 120px;
+    border: 0.5px solid var(--border-teal);
+    border-radius: 2px;
+    image-rendering: pixelated;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-line {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 2px;
+    transition: background-color 0.1s ease;
+    border: 0.5px solid transparent;
+}
+
+.contact-line:hover {
+    background-color: rgba(160, 240, 226, 0.05);
+    border-color: var(--border-teal);
+}
+
+.contact-label {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.contact-value {
+    color: var(--accent-cyan);
+    font-size: 13px;
+}
+
 .contact {
     position: fixed;
     bottom: 40px;
@@ -312,8 +367,13 @@ body {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
 
 .copy-notification {
@@ -424,6 +484,16 @@ body {
         grid-row: 3;
         text-align: left;
         font-size: 12px;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .qr-code {
+        width: 100px;
+        height: 100px;
     }
 
     .contact {
