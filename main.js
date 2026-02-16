@@ -58,12 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=62.0355&longitude=129.6755&current_weather=true');
             const data = await response.json();
             const temp = Math.round(data.current_weather.temperature);
-            const weatherOutput = document.getElementById('weatherOutput');
-            if (weatherOutput) {
-                weatherOutput.textContent = `> YAKUTSK ${temp}°C`;
-            }
+            return `${temp}°C`;
         } catch (error) {
             console.log('Weather fetch failed, using default');
+            return '—44°C';
         }
     }
 
@@ -71,13 +69,20 @@ document.addEventListener('DOMContentLoaded', () => {
         await typeText(loadingLine, 'iindev@yakutsk:~$ ./boot --cold-start', 80);
         await new Promise(r => setTimeout(r, 300));
         
+        loadingLine.innerHTML = 'iindev@yakutsk:~$ ./boot --cold-start<div class="temp-loader"><span class="loader-dot"></span><span class="loader-dot"></span><span class="loader-dot"></span></div>';
+        
+        const temp = await fetchWeather();
+        const weatherOutput = document.getElementById('weatherOutput');
+        if (weatherOutput) {
+            weatherOutput.textContent = `> YAKUTSK ${temp}`;
+        }
+        
         gsap.to(loadingScreen, {
             opacity: 0,
             duration: 0.5,
             onComplete: () => {
                 loadingScreen.classList.add('hidden');
                 animateContent();
-                fetchWeather();
             }
         });
     }

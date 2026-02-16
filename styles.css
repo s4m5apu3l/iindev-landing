@@ -61,6 +61,39 @@ body {
     color: var(--text-muted);
 }
 
+.temp-loader {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.temp-loader .loader-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-cyan);
+    border-radius: 50%;
+    animation: loaderPulse 1s ease-in-out infinite;
+}
+
+.temp-loader .loader-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.temp-loader .loader-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loaderPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .background-pattern {
     position: fixed;
     top: 0;
