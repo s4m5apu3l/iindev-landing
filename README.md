@@ -1,75 +1,36 @@
-# Nuxt Minimal Starter
+# iindev. — Якутская экосистема ИИ
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Современная платформа сервисов на базе ИИ для Якутска. Создана с использованием передовых технологий для экстремальных условий.
 
-## Setup
+## Сервисы
 
-Make sure to install dependencies:
+- **taxi/** - ИИ-такси оптимизированное для условий Якутска
+- **booking/** - Умная система бронирования с ИИ оптимизацией
+- **masters/** - Платформа мгновенного подбора специалистов
+- **ai-business/** - Пользовательские ИИ решения для автоматизации бизнеса
+- **dev/** - Полнофункциональные услуги разработки (1C, Bitrix, сайты)
+- **widgets/** - Встраиваемые ИИ виджеты для любой платформы
 
-```bash
-# npm
-npm install
+## Возможности
 
-# pnpm
-pnpm install
+- Интеграция реальной погоды Якутска в реальном времени
+- Терминальный интерфейс с киберпанк эстетикой
+- ИИ-нативная архитектура ядра
+- Оптимизирована для экстремального холода (работа при -50°C)
+- Адаптивный дизайн для всех устройств
 
-# yarn
-yarn install
+## Начало работы
 
-# bun
-bun install
-```
+Откройте `index.html` в браузере для просмотра сайта.
 
-## Development Server
+## Технологический стек
 
-Start the development server on `http://localhost:3000`:
+- HTML5
+- CSS3 (с пользовательскими свойствами и анимациями)
+- Vanilla JavaScript
+- GSAP для анимаций
+- Open-Meteo API для реальной погоды
 
-```bash
-# npm
-npm run dev
+## Контакты
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Telegram: [@iindev](https://t.me/iindev)
