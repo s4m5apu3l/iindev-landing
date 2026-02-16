@@ -69,12 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
         await typeText(loadingLine, 'iindev@yakutsk:~$ ./boot --cold-start', 80);
         await new Promise(r => setTimeout(r, 300));
         
-        loadingLine.innerHTML = 'iindev@yakutsk:~$ ./boot --cold-start<div class="temp-loader"><span class="loader-dot"></span><span class="loader-dot"></span><span class="loader-dot"></span></div>';
-        
         const temp = await fetchWeather();
         const weatherOutput = document.getElementById('weatherOutput');
         if (weatherOutput) {
-            weatherOutput.textContent = `> YAKUTSK ${temp}`;
+            weatherOutput.innerHTML = `> YAKUTSK ${temp}`;
         }
         
         gsap.to(loadingScreen, {
