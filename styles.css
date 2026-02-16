@@ -302,17 +302,6 @@ body {
     margin-top: 20px;
 }
 
-.qr-container {
-    flex-shrink: 0;
-}
-
-.qr-code {
-    width: 120px;
-    height: 120px;
-    border: 0.5px solid var(--border-teal);
-    border-radius: 2px;
-    image-rendering: pixelated;
-}
 
 .contact-details {
     display: flex;
@@ -491,10 +480,6 @@ body {
         gap: 20px;
     }
 
-    .qr-code {
-        width: 100px;
-        height: 100px;
-    }
 
     .contact {
         bottom: 20px;
