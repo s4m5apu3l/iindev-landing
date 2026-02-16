@@ -53,8 +53,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    async function fetchWeather() {
+        try {
+            const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=62.0355&longitude=129.6755&current_weather=true');
+            const data = await response.json();
+            const temp = Math.round(data.current_weather.temperature);
+            const weatherOutput = document.getElementById('weatherOutput');
+            if (weatherOutput) {
+                weatherOutput.textContent = `> YAKUTSK ${temp}°C`;
+            }
+        } catch (error) {
+            console.log('Weather fetch failed, using default');
+        }
+    }
+
     async function initLoading() {
-        await typeText(loadingLine, 'frostbyte@yakutsk:~$ ./boot --cold-start', 80);
+        await typeText(loadingLine, 'iindev@yakutsk:~$ ./boot --cold-start', 80);
         await new Promise(r => setTimeout(r, 300));
         
         gsap.to(loadingScreen, {
@@ -63,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             onComplete: () => {
                 loadingScreen.classList.add('hidden');
                 animateContent();
+                fetchWeather();
             }
         });
     }
@@ -138,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     contactBlock.addEventListener('click', async () => {
         try {
-            await navigator.clipboard.writeText('t.me/frostbyte');
+            await navigator.clipboard.writeText('t.me/iindev');
             copyNotification.classList.add('visible');
             
             setTimeout(() => {
