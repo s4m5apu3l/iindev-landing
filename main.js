@@ -13,18 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const serviceInfo = {
         'taxi': {
             name: './taxi',
-            description: 'AI-powered taxi service optimized for Yakutsk conditions. Real-time routing, predictive demand analysis, and cold-start algorithms for -50°C operations.'
+            description: 'Taxi service optimized for Yakutsk conditions. Real-time routing, demand analysis, and cold-start algorithms for -50°C operations.'
         },
         'booking': {
             name: './booking',
-            description: 'Smart booking system with AI optimization. Automated scheduling, resource allocation, and predictive analytics for seamless reservations.'
+            description: 'Smart booking system with automated scheduling, resource allocation, and analytics for seamless reservations.'
         },
         'masters': {
             name: './masters',
-            description: 'Instant service matching platform. Connect with verified professionals in seconds. AI-optimized for local market conditions.'
+            description: 'Instant service matching platform. Connect with verified professionals in seconds. Optimized for local market.'
         },
         'ai-business': {
-            description: 'Custom AI solutions for business automation. Process optimization, predictive maintenance, and intelligent decision support systems.',
+            description: 'Custom software solutions for business automation. Process optimization and intelligent decision support systems.',
             name: './ai-business'
         },
         'dev': {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'widgets': {
             name: './widgets',
-            description: 'Embeddable AI widgets for any platform. Lightweight, fast, and designed for extreme conditions. Plug-and-play integration.'
+            description: 'Embeddable widgets for any platform. Lightweight, fast, and designed for extreme conditions. Plug-and-play integration.'
         }
     };
 
@@ -61,20 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
             return `${temp}°C`;
         } catch (error) {
             console.log('Weather fetch failed, using default');
-            return '—44°C';
+            return '—71°C';
         }
     }
 
     async function initLoading() {
         await typeText(loadingLine, 'iindev@yakutsk:~$ ./boot --cold-start', 80);
-        await new Promise(r => setTimeout(r, 300));
+        // await new Promise(r => setTimeout(r, 200));
         
-        const temp = await fetchWeather();
-        const weatherOutput = document.getElementById('weatherOutput');
-        if (weatherOutput) {
-            weatherOutput.innerHTML = `> YAKUTSK ${temp}`;
-        }
+        // Загружаем погоду асинхронно в фоне
+        fetchWeather().then(temp => {
+            const weatherOutput = document.getElementById('weatherOutput');
+            if (weatherOutput) {
+                weatherOutput.innerHTML = `> YAKUTSK ${temp}`;
+            }
+        });
         
+        // Сразу показываем экран, не ждем погоду
         gsap.to(loadingScreen, {
             opacity: 0,
             duration: 0.5,
